@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: chiefalexander/ip-api-proxy
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: false
@@ -77,3 +77,17 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Configuration of the proxy injected as environment variables
+config: {}
+  # IP_API_KEY: imakey
+  # LISTEN: 0.0.0.0:8080
+  # CACHE_TTL: 24h
+  # CACHE_SIZE: "1073741824"
+  # RETRIES: "4"
+  # POPS_REFRESH: 1h
+  # BATCH_DELAY: 10ms
+  # LOG_OUTPUT: ""
+  # LOG_LEVEL: ""
+  # REVERSE_WORKERS: "10"
+  # REVERSE_PREFERGO: "true"

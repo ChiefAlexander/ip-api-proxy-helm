@@ -1,0 +1,7 @@
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "ip-api-proxy.fullname" . }}
+  labels: {{ include "ip-api-proxy.labels" . | nindent 4 }}
+data: {{ toYaml .Values.config | nindent 2 }}

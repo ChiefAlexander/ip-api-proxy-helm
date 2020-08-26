@@ -2,8 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "ip-api-proxy.fullname" . }}
-  labels:
-    {{- include "ip-api-proxy.labels" . | nindent 4 }}
+  labels: {{ include "ip-api-proxy.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -11,5 +10,4 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-  selector:
-    {{- include "ip-api-proxy.selectorLabels" . | nindent 4 }}
+  selector: {{ include "ip-api-proxy.selectorLabels" . | nindent 4 }}
