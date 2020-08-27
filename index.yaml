@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  ip-api-proxy:
+  - apiVersion: v2
+    appVersion: v0.0.4
+    created: "2020-08-27T15:24:11.234065475Z"
+    description: A Helm chart for Kubernetes
+    digest: a82108adabedcc334eb5b27b401ef63d4470006e4c5fce9000ae2a032b86500c
+    name: ip-api-proxy
+    type: application
+    urls:
+    - https://github.com/ChiefAlexander/ip-api-proxy-helm/releases/download/ip-api-proxy-0.0.2/ip-api-proxy-0.0.2.tgz
+    version: 0.0.2
+generated: "2020-08-27T15:24:10.990502148Z"
