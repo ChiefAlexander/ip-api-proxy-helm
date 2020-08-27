@@ -11,10 +11,12 @@ spec:
     matchLabels: {{ include "ip-api-proxy.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
       annotations:
+        # Automatic rollout of deployment when config changes
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
-    {{- end }}
+      {{- end }}
       labels: {{ include "ip-api-proxy.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}

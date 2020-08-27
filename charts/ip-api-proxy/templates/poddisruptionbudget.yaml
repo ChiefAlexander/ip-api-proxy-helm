@@ -1,0 +1,16 @@
+{{- if .Values.disruption -}}
+# https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "ip-api-proxy.fullname" . }}
+  labels: {{ include "ip-api-proxy.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels: {{ include "ip-api-proxy.selectorLabels" . | nindent 6 }}
+  {{- if .Values.disruption.minAvailable }}
+  minAvailable: {{ .Values.disruption.minAvailable }}
+  {{- else if .Values.disruption.maxUnavailable }}
+  maxUnavailable: {{ .Values.disruption.maxUnavailable }}
+  {{- end }}
+{{- end }}

@@ -78,6 +78,12 @@ tolerations: []
 
 affinity: {}
 
+## Optional: This configures the pod disruption budget for your deployment. You can only select one of minAvaiable or maxUnavailable. These can be percentages.
+## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget
+disruption: {}
+  # minAvailable: 1
+  # maxUnavailable: 50%
+
 # Configuration of the proxy injected as environment variables
 config: {}
   # IP_API_KEY: imakey
