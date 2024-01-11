@@ -1,5 +1,7 @@
 # ip-api-proxy-helm
 
+I am no longer maintaining. Feel free to fork and use as you want.
+
 Helm chart for deploying the ip-api proxy
 
 ```
